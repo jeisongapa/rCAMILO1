@@ -375,6 +375,170 @@
           "_params": {}
         },
         {
+          "_name": "agallery5",
+          "_sourceTheme": "solarm5",
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            ".row": {
+              "justify-content": "center"
+            },
+            ".item-img": {
+              "height": "auto",
+              "width": "100%",
+              "margin-bottom": "24px",
+              "flex-grow": "1",
+              "@media (min-width: 768px)": {
+                "&:hover": {
+                  "img": {
+                    "transform": "translateY(-8px)"
+                  }
+                }
+              }
+            },
+            "img": {
+              "width": "100%",
+              "height": "100%",
+              "object-fit": "cover",
+              "transition": "0.5s all"
+            },
+            ".item:focus, span:focus": {
+              "outline": "none"
+            },
+            ".col-items": {
+              "display": "flex",
+              "flex-wrap": "wrap",
+              "justify-content": "center",
+              "padding": "0",
+              "@media (max-width: 767px)": {
+                "flex-wrap": "wrap"
+              }
+            },
+            ".item": {
+              "cursor": "pointer",
+              "padding": "12px",
+              "@media (min-width: 992px)": {
+                "padding": "30px"
+              },
+              "@media (max-width: 767px)": {
+                "padding-bottom": "30px",
+                "padding-top": "30px",
+                "width": "100%"
+              }
+            },
+            ".item-wrapper": {
+              "position": "relative",
+              "background": "transparent",
+              "height": "100%",
+              "display": "flex",
+              "flex-flow": "column nowrap",
+              "justify-content": "flex-end"
+            },
+            ".item-content": {
+              "width": "100%",
+              "@media (max-width: 767px)": {
+                "text-align": "center"
+              },
+              "@media (min-width: 768px)": {
+                "padding-left": "16px"
+              }
+            },
+            ".label-text": {
+              "width": "100%",
+              "margin-bottom": "16px",
+              "color": "#C69453",
+              "@media (max-width: 767px)": {
+                "text-align": "center !important"
+              }
+            },
+            ".mbr-section-title": {
+              "width": "100%",
+              "color": "#ff0000",
+              "text-align": "center"
+            },
+            ".mbr-text": {
+              "color": "#555555"
+            },
+            ".item-title": {
+              "color": "#222222"
+            },
+            ".mbr-section-head": {
+              "margin-right": "auto",
+              "@media (max-width: 991px)": {
+                "padding-bottom": "30px",
+                "padding-top": "30px"
+              },
+              "@media (min-width: 992px)": {
+                "padding": "30px"
+              },
+              "@media (max-width: 767px)": {
+                "text-align": "center !important"
+              }
+            },
+            ".social-row": {
+              "display": "flex",
+              "flex-wrap": "wrap",
+              "padding-top": "1.5rem",
+              "@media (max-width: 767px)": {
+                "justify-content": "center"
+              }
+            },
+            ".soc-item": {
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "center",
+              "border-radius": "50%",
+              "border": "1px solid @colorSocial",
+              "background-color": "transparent",
+              "margin-right": "0.5rem",
+              "margin-bottom": "1rem",
+              "padding": "6px",
+              "transition": "0.5s all",
+              "span": {
+                "font-size": "16px",
+                "color": "@colorSocial"
+              },
+              "&:hover": {
+                "background-color": "@colorSocial",
+                "border-color": "@colorSocial",
+                "span": {
+                  "color": "#ffffff",
+                  "& when (@bg-type = 'color')": {
+                    "color": "@bg-value"
+                  }
+                }
+              }
+            },
+            ".mbr-section-subtitle": {
+              "text-align": "center",
+              "color": "#ffffff"
+            },
+            ".item-title, .mbr-section-btn": {
+              "color": "#f60000"
+            }
+          },
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"gallery5\" group=\"People\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" name=\"showLabel\" title=\"Label\">\n        <input type=\"checkbox\" name=\"showTitle\" title=\"Title\" checked>\n        <input type=\"checkbox\" name=\"showSubtitle\" title=\"Subtitle\" checked>\n        <header>Cards</header>\n        <input type=\"checkbox\" name=\"showCardTitle\" title=\"Title\">\n        <input type=\"checkbox\" name=\"showText\" title=\"Text\">\n        <input type=\"checkbox\" title=\"Social\" name=\"showSocial\">\n        <input type=\"color\" title=\"Icon Color\" name=\"colorSocial\" value=\"#C69453\" selected condition=\"showSocial\">\n        <input type=\"range\" name=\"socialCount\" title=\"Social Count\" min=\"1\" max=\"4\" step=\"1\" value=\"4\" condition=\"showSocial\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" required>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/slide2.webp\">\n            <input type=\"color\" title=\"Color\" value=\"#000000\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#191919\" condition=\"overlay && bg.type == 'image'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type == 'image'\">\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"mbr-section-head сol-12 col-md-6 col-lg-5\" mbr-if=\"showTitle || showSubtitle || showLabel\">\n                <p class=\"label-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showLabel\" data-app-selector=\".label-text\">\n                    <b>OUR TEAM</b>\n                </p>\n                <h4 class=\"mbr-section-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    <b>TESTIMONIOS</b></h4>\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style mb-0 mt-2\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Mis clientes dan fé de mi trabajo</h5>\n            </div>\n\n            <div class=\"col-12 col-items\">\n                <div class=\"item features-image сol-12 col-md-4\">\n                    <div class=\"item-wrapper\">\n                        <div class=\"item-img\">\n                            <img src=\"@PROJECT_PATH@/assets/images/t1.webp\" alt>\n                        </div>\n                        <div class=\"item-content\" mbr-if=\"showCardTitle || showText || showSocial\">\n                            <h5 class=\"item-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" data-app-selector=\".item-title, .mbr-section-btn\" mbr-if=\"showCardTitle\"><b>Raul Garcia</b></h5>\n                            <p class=\"mbr-text mbr-fonts-style mb-0 mt-0\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                                GENERAL MANAGER\n                            </p>\n                            <div class=\"social-row display-7\" mbr-if=\"showSocial\">\n                                <div class=\"soc-item\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-twitter\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-youtube\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"item features-image сol-12 col-md-4\">\n                    <div class=\"item-wrapper\">\n                        <div class=\"item-img\">\n                            <img src=\"@PROJECT_PATH@/assets/images/t2.webp\" alt>\n                        </div>\n                        <div class=\"item-content\" mbr-if=\"showCardTitle || showText || showSocial\">\n                            <h5 class=\"item-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" data-app-selector=\".item-title, .mbr-section-btn\" mbr-if=\"showCardTitle\">\n                                <b>Maria Martinez</b></h5>\n                            <p class=\"mbr-text mbr-fonts-style mb-0 mt-0\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                                PRODUCT MANAGER\n                            </p>\n                            <div class=\"social-row display-7\" mbr-if=\"showSocial\">\n                                <div class=\"soc-item\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-twitter\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-youtube\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"item features-image сol-12 col-md-4\">\n                    <div class=\"item-wrapper\">\n                        <div class=\"item-img\">\n                            <img src=\"@PROJECT_PATH@/assets/images/1.webp\" alt>\n                        </div>\n                        <div class=\"item-content\" mbr-if=\"showCardTitle || showText || showSocial\">\n                            <h5 class=\"item-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" data-app-selector=\".item-title, .mbr-section-btn\" mbr-if=\"showCardTitle\">\n                                <b>Pedro Gonzalez</b></h5>\n                            <p class=\"mbr-text mbr-fonts-style mb-0 mt-0\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                                MARKETING MANAGER</p>\n                            <div class=\"social-row display-7\" mbr-if=\"showSocial\">\n                                <div class=\"soc-item\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-twitter\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-youtube\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_anchor": "agallery5-c",
+          "_isUserblock": true,
+          "_cid": "twxtaAIhmv",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
           "_name": "afeatures2",
           "_sourceTheme": "bootcampm5",
           "_styles": {
@@ -1023,170 +1187,6 @@
           "_anchor": "afeatures2-f",
           "_isUserblock": true,
           "_cid": "twxtrsmiLX",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "_name": "agallery5",
-          "_sourceTheme": "solarm5",
-          "_styles": {
-            "padding-top": "(@paddingTop * 1rem)",
-            "padding-bottom": "(@paddingBottom * 1rem)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)",
-              "& when (@overlay)": {
-                ".mbr-overlay": {
-                  "background": "@overlayColor",
-                  "opacity": "@overlayOpacity"
-                }
-              }
-            },
-            ".row": {
-              "justify-content": "center"
-            },
-            ".item-img": {
-              "height": "auto",
-              "width": "100%",
-              "margin-bottom": "24px",
-              "flex-grow": "1",
-              "@media (min-width: 768px)": {
-                "&:hover": {
-                  "img": {
-                    "transform": "translateY(-8px)"
-                  }
-                }
-              }
-            },
-            "img": {
-              "width": "100%",
-              "height": "100%",
-              "object-fit": "cover",
-              "transition": "0.5s all"
-            },
-            ".item:focus, span:focus": {
-              "outline": "none"
-            },
-            ".col-items": {
-              "display": "flex",
-              "flex-wrap": "wrap",
-              "justify-content": "center",
-              "padding": "0",
-              "@media (max-width: 767px)": {
-                "flex-wrap": "wrap"
-              }
-            },
-            ".item": {
-              "cursor": "pointer",
-              "padding": "12px",
-              "@media (min-width: 992px)": {
-                "padding": "30px"
-              },
-              "@media (max-width: 767px)": {
-                "padding-bottom": "30px",
-                "padding-top": "30px",
-                "width": "100%"
-              }
-            },
-            ".item-wrapper": {
-              "position": "relative",
-              "background": "transparent",
-              "height": "100%",
-              "display": "flex",
-              "flex-flow": "column nowrap",
-              "justify-content": "flex-end"
-            },
-            ".item-content": {
-              "width": "100%",
-              "@media (max-width: 767px)": {
-                "text-align": "center"
-              },
-              "@media (min-width: 768px)": {
-                "padding-left": "16px"
-              }
-            },
-            ".label-text": {
-              "width": "100%",
-              "margin-bottom": "16px",
-              "color": "#C69453",
-              "@media (max-width: 767px)": {
-                "text-align": "center !important"
-              }
-            },
-            ".mbr-section-title": {
-              "width": "100%",
-              "color": "#ff0000",
-              "text-align": "center"
-            },
-            ".mbr-text": {
-              "color": "#555555"
-            },
-            ".item-title": {
-              "color": "#222222"
-            },
-            ".mbr-section-head": {
-              "margin-right": "auto",
-              "@media (max-width: 991px)": {
-                "padding-bottom": "30px",
-                "padding-top": "30px"
-              },
-              "@media (min-width: 992px)": {
-                "padding": "30px"
-              },
-              "@media (max-width: 767px)": {
-                "text-align": "center !important"
-              }
-            },
-            ".social-row": {
-              "display": "flex",
-              "flex-wrap": "wrap",
-              "padding-top": "1.5rem",
-              "@media (max-width: 767px)": {
-                "justify-content": "center"
-              }
-            },
-            ".soc-item": {
-              "display": "flex",
-              "align-items": "center",
-              "justify-content": "center",
-              "border-radius": "50%",
-              "border": "1px solid @colorSocial",
-              "background-color": "transparent",
-              "margin-right": "0.5rem",
-              "margin-bottom": "1rem",
-              "padding": "6px",
-              "transition": "0.5s all",
-              "span": {
-                "font-size": "16px",
-                "color": "@colorSocial"
-              },
-              "&:hover": {
-                "background-color": "@colorSocial",
-                "border-color": "@colorSocial",
-                "span": {
-                  "color": "#ffffff",
-                  "& when (@bg-type = 'color')": {
-                    "color": "@bg-value"
-                  }
-                }
-              }
-            },
-            ".mbr-section-subtitle": {
-              "text-align": "center",
-              "color": "#ffffff"
-            },
-            ".item-title, .mbr-section-btn": {
-              "color": "#f60000"
-            }
-          },
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"gallery5\" group=\"People\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" name=\"showLabel\" title=\"Label\">\n        <input type=\"checkbox\" name=\"showTitle\" title=\"Title\" checked>\n        <input type=\"checkbox\" name=\"showSubtitle\" title=\"Subtitle\" checked>\n        <header>Cards</header>\n        <input type=\"checkbox\" name=\"showCardTitle\" title=\"Title\">\n        <input type=\"checkbox\" name=\"showText\" title=\"Text\">\n        <input type=\"checkbox\" title=\"Social\" name=\"showSocial\">\n        <input type=\"color\" title=\"Icon Color\" name=\"colorSocial\" value=\"#C69453\" selected condition=\"showSocial\">\n        <input type=\"range\" name=\"socialCount\" title=\"Social Count\" min=\"1\" max=\"4\" step=\"1\" value=\"4\" condition=\"showSocial\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" required>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/slide2.webp\">\n            <input type=\"color\" title=\"Color\" value=\"#000000\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#191919\" condition=\"overlay && bg.type == 'image'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type == 'image'\">\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"mbr-section-head сol-12 col-md-6 col-lg-5\" mbr-if=\"showTitle || showSubtitle || showLabel\">\n                <p class=\"label-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showLabel\" data-app-selector=\".label-text\">\n                    <b>OUR TEAM</b>\n                </p>\n                <h4 class=\"mbr-section-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    <b>TESTIMONIOS</b></h4>\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style mb-0 mt-2\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Mis clientes dan fé de mi trabajo</h5>\n            </div>\n\n            <div class=\"col-12 col-items\">\n                <div class=\"item features-image сol-12 col-md-4\">\n                    <div class=\"item-wrapper\">\n                        <div class=\"item-img\">\n                            <img src=\"@PROJECT_PATH@/assets/images/t1.webp\" alt>\n                        </div>\n                        <div class=\"item-content\" mbr-if=\"showCardTitle || showText || showSocial\">\n                            <h5 class=\"item-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" data-app-selector=\".item-title, .mbr-section-btn\" mbr-if=\"showCardTitle\"><b>Raul Garcia</b></h5>\n                            <p class=\"mbr-text mbr-fonts-style mb-0 mt-0\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                                GENERAL MANAGER\n                            </p>\n                            <div class=\"social-row display-7\" mbr-if=\"showSocial\">\n                                <div class=\"soc-item\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-twitter\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-youtube\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"item features-image сol-12 col-md-4\">\n                    <div class=\"item-wrapper\">\n                        <div class=\"item-img\">\n                            <img src=\"@PROJECT_PATH@/assets/images/t2.webp\" alt>\n                        </div>\n                        <div class=\"item-content\" mbr-if=\"showCardTitle || showText || showSocial\">\n                            <h5 class=\"item-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" data-app-selector=\".item-title, .mbr-section-btn\" mbr-if=\"showCardTitle\">\n                                <b>Maria Martinez</b></h5>\n                            <p class=\"mbr-text mbr-fonts-style mb-0 mt-0\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                                PRODUCT MANAGER\n                            </p>\n                            <div class=\"social-row display-7\" mbr-if=\"showSocial\">\n                                <div class=\"soc-item\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-twitter\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-youtube\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"item features-image сol-12 col-md-4\">\n                    <div class=\"item-wrapper\">\n                        <div class=\"item-img\">\n                            <img src=\"@PROJECT_PATH@/assets/images/1.webp\" alt>\n                        </div>\n                        <div class=\"item-content\" mbr-if=\"showCardTitle || showText || showSocial\">\n                            <h5 class=\"item-title mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" data-app-selector=\".item-title, .mbr-section-btn\" mbr-if=\"showCardTitle\">\n                                <b>Pedro Gonzalez</b></h5>\n                            <p class=\"mbr-text mbr-fonts-style mb-0 mt-0\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                                MARKETING MANAGER</p>\n                            <div class=\"social-row display-7\" mbr-if=\"showSocial\">\n                                <div class=\"soc-item\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-facebook\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-twitter\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-youtube\"></span>\n                                    </a>\n                                </div>\n                                <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                                    <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                        <span mbr-icon class=\"mbr-iconfont socicon socicon-instagram\"></span>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_anchor": "agallery5-c",
-          "_isUserblock": true,
-          "_cid": "twxtaAIhmv",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
