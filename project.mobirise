@@ -49,7 +49,7 @@
     "versionPublish": "5.7.4",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/logo-128x128.png",
-    "mbrsiteDomain": "1icbv2w028",
+    "mbrsiteDomain": "3kbytsqnnk",
     "robotsSwitcher": false,
     "sitemapSwitcher": false,
     "sitemapSwitcherAuto": false,
@@ -57,7 +57,10 @@
     "cookiesAlert": false,
     "gdpr": false,
     "site_lang": "es",
-    "publishChangesOnly": true
+    "publishChangesOnly": true,
+    "global_after_body": "",
+    "global_header_custom": "<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-N833PG2');</script>\n<!-- End Google Tag Manager -->",
+    "global_footer_custom": "<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-N833PG2\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->"
   },
   "pages": {
     "index.html": {
@@ -151,12 +154,12 @@
           "_anchor": "llamanos",
           "_isUserblock": true,
           "_cid": "twxr0d5244",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_PHPplaceholders": [],
-          "_JSplaceholders": []
+          "_params": {}
         },
         {
           "_name": "afeatures2",
@@ -535,12 +538,12 @@
           "_anchor": "testimonios",
           "_isUserblock": true,
           "_cid": "twxtaAIhmv",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_PHPplaceholders": [],
-          "_JSplaceholders": []
+          "_params": {}
         },
         {
           "_name": "afeatures2",
